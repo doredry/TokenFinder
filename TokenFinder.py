@@ -12,7 +12,7 @@ import shutil
 
 dbghelp = ctypes.windll.dbghelp
 
-known_processes = ["WINWORD", "ONENOTE", "POWERPNT", "OUTLOOK", "EXCEL", "OneDrive"]
+known_processes = ["WINWORD", "ONENOTE", "POWERPNT", "OUTLOOK", "EXCEL", "OneDrive", "Teams"]
 
 
 def createMiniDump(pid, file_name):
@@ -107,8 +107,7 @@ def create_dump_files():
             pass
 
         for pair in process_pairs:
-            createMiniDump(pair[0], "Dump/" + str(pair[1]) + ".DMP")
-
+            createMiniDump(pair[0], "Dump/" + str(pair[0]) + ".DMP")
         return True
     except:
         return False
